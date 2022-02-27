@@ -7,7 +7,7 @@ const setUser = (state) => {
     state,
   };
 };
-export const login = (data) => {
+export const login = (data,mensaje,open,disabled) => {
   return async (dispatch) => {
     try {
       await axios
@@ -23,6 +23,9 @@ export const login = (data) => {
           }
         });
     } catch (error) {
+      mensaje(error.response.data.error)
+      disabled(false)
+      open(true)
       console.log(error);
     }
   };
