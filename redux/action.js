@@ -32,7 +32,7 @@ export const login = (data,mensaje,open,disabled) => {
 };
 export const logout = () =>{
     return async (dispatch) =>{
+      Router.push('/')
         dispatch(setUser(null))
-        Router.push('/')
     }
 }
